@@ -3,8 +3,6 @@ from ipykernel.ipkernel import IPythonKernel
 import logging
 from logging.handlers import RotatingFileHandler
 
-from kishu import init_kishu
-
 logger = logging.getLogger("KishuKernel")
 file_handler = RotatingFileHandler("/Users/matsumotoryutaro/programs/KishuKernel/KishuKernel.log", maxBytes=1024*1024, backupCount=5)
 file_handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
@@ -21,7 +19,8 @@ class KishuKernel(IPythonKernel):
         jupyter_notebook_path = os.environ.get("JPY_SESSION_NAME")
         logger.info(f"Jupyter Notebook Path: {jupyter_notebook_path}")
 
-        init_kishu(jupyter_notebook_path)
+        self.shell.run_cell("from kishu import init_kishu")
+        self.shell.run_cell(f"init_kishu('{jupyter_notebook_path}')")
 
 
 if __name__ == "__main__":

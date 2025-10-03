@@ -169,3 +169,7 @@ jupyterlab_kishu/junit.xml
 
 # 追記
 *.ipynb
+*.kishudb
+*.sqlite
+*.sqlite3
+
