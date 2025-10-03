@@ -166,3 +166,6 @@ yarn-error.log*
 
 ### jupyterlab_kishu
 jupyterlab_kishu/junit.xml
+
+# 追記
+*.ipynb

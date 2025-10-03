@@ -1,0 +1,22 @@
+[project]
+name = "kishu_kernel"
+version = "0.0.1"
+description = "Kishu Kernel for Jupyter"
+requires-python = ">=3.8"
+dependencies = [
+    "ipykernel>=6.0.0",
+    "kishu",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.setuptools]
+packages = ["kishu_kernel"]
+
+[tool.setuptools.package-data]
+"kishu_kernel" = ["kernel.json", "kernel.py"]
