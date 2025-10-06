@@ -23,9 +23,3 @@ class KishuKernel(IPythonKernel):
         # self.shell.run_cell(f"init_kishu('{jupyter_notebook_path}')")
         self.shell.run_cell("from kishu import load_kishu")
         self.shell.run_cell("load_kishu()")
-
-
-if __name__ == "__main__":
-    from ipykernel import kernelapp as app
-
-    app.launch_new_instance(kernel_class=KishuKernel)

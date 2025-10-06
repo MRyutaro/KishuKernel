@@ -4,6 +4,7 @@ version = "0.0.1"
 description = "Kishu Kernel for Jupyter"
 requires-python = ">=3.8"
 dependencies = [
+    "jupyter",
     "ipykernel>=6.0.0",
     "kishu",
 ]
@@ -13,8 +14,7 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = []
-py-modules = ["command", "kernel", "__init__"]
+packages = ["kishu_kernel"]
 
 [project.scripts]
-kishu-kernel = "command:main"
+kishu-kernel = "kishu_kernel.command:main"
