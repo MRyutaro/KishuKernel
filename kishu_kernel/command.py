@@ -17,7 +17,6 @@ def install_kernel():
 
 
 def main():
-    print(sys.argv)
     if len(sys.argv) > 1 and sys.argv[1] == "install":
         install_kernel()
     else:
