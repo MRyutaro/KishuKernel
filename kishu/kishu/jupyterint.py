@@ -70,6 +70,7 @@ from kishu.exceptions import (
 )
 from kishu.jupyter.namespace import Namespace
 from kishu.jupyter.runtime import JupyterRuntimeEnv
+from kishu.logging import logger
 from kishu.notebook_id import NotebookId
 from kishu.planning.plan import RestorePlan
 from kishu.planning.planner import ChangedVariables, CheckpointRestorePlanner
@@ -833,6 +834,8 @@ Namespace.register_kishu_vars(KISHU_VARS)
 
 
 def init_kishu(notebook_path: Optional[str] = None) -> None:
+    logger.info(f"init_kishuを実行しました: {notebook_path}")
+
     # Create notebook id.
     notebook_id = NotebookId.from_enclosing(None if notebook_path is None else Path(notebook_path))
 
