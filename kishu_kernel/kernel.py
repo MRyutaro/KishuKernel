@@ -19,8 +19,10 @@ class KishuKernel(IPythonKernel):
         jupyter_notebook_path = os.environ.get("JPY_SESSION_NAME")
         logger.info(f"Jupyter Notebook Path: {jupyter_notebook_path}")
 
-        self.shell.run_cell("from kishu import init_kishu")
-        self.shell.run_cell(f"init_kishu('{jupyter_notebook_path}')")
+        # self.shell.run_cell("from kishu import init_kishu")
+        # self.shell.run_cell(f"init_kishu('{jupyter_notebook_path}')")
+        self.shell.run_cell("from kishu import load_kishu")
+        self.shell.run_cell("load_kishu()")
 
 
 if __name__ == "__main__":
