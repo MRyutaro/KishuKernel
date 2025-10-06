@@ -27,7 +27,10 @@ class KishuKernel(IPythonKernel):
 
     def run_cell(self, code):
         result = self.shell.run_cell(code)
-        try:
-            raise result.error_in_exec
-        except Exception as e:
-            logger.error(f"セルの実行中にエラーが発生しました: {str(e)}")
+        logger.debug(f"セルの実行結果: {result}")
+        if result.error_in_exec:
+            logger.error(f"セルの実行中にエラーが発生しました: {result.error_in_exec}")
+        elif result.error_before_exec:
+            logger.error(f"セル実行前にエラーが発生しました: {result.error_before_exec}")
+        else:
+            logger.info(f"セルを正常に実行しました: {code[:50]}...")
